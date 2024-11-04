@@ -23,6 +23,20 @@ function newCard(){
     renderGame()
 }
 
+let isDark = false; // This variable tracks the current state
+const body = document.body; // Get a reference to the body element
+
+function toggleDarkMode() {
+    if (isDark) {
+        body.style.backgroundImage = "url('resources/background.jpg')"; 
+        isDark = false;
+    } else {
+        body.style.backgroundImage = "none";
+        // body.style.backgroundColor = "black";
+        isDark = true;
+    }
+}
+
 function renderGame() {
     cardsEl.textContent = "Cards: "
 
@@ -39,7 +53,7 @@ function renderGame() {
         message = "You're out of the game!"
         isAlive = false
     }
-    
+
     sumEl.textContent = "Sum: " + sum
     messageEl.textContent = message
 };
