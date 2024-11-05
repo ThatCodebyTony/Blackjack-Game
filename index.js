@@ -9,6 +9,14 @@ let messageEl = document.getElementById("message-el");
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.getElementById("cards-el");
 
+let player = {
+    name: "Per",
+    chips: 145
+}
+
+let playerEl = doucment.getElementById("player-el")
+playerEl.textContent = player.name + ": $" + player.chips
+
 function getRandomCard() {
     let cardValue = Math.floor(Math.random() * 13) + 1
     if (cardValue === 1) {
@@ -23,18 +31,20 @@ function getRandomCard() {
 function startGame(){
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
-    let sum = firstCard + secondCard
+    sum = firstCard + secondCard
     cards = [firstCard, secondCard]
     isAlive = true
     renderGame()
 }
 
 function newCard(){
-    // console.log("Drawing a new card from the deck!")
-    let newCard = getRandomCard()
-    sum += newCard
-    cards.push(newCard)
-    renderGame()
+    if (isAlive === true && hasBlackJack === false) {
+        // console.log("Drawing a new card from the deck!")
+        let newCard = getRandomCard()
+        sum += newCard
+        cards.push(newCard)
+        renderGame()
+    }
 }
 
 let isDark = false; // This variable tracks the current state
