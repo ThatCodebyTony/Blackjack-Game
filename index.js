@@ -11,7 +11,10 @@ let cardsEl = document.getElementById("cards-el");
 
 let player = {
     name: "Per",
-    chips: 145
+    chips: 145,
+    // sayHello: function() {
+    //     console.log("Hello!")
+    
 }
 
 let playerEl = document.getElementById("player-el")
@@ -29,11 +32,11 @@ function getRandomCard() {
 }
 
 function startGame(){
+    isAlive = true
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
     sum = firstCard + secondCard
     cards = [firstCard, secondCard]
-    isAlive = true
     renderGame()
 }
 
